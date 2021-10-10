@@ -4,7 +4,7 @@ import { AppModule } from '../src/app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { join } from 'path';
 
-jest.setTimeout(1000000 * 100);
+jest.setTimeout(100000);
 
 describe('App (e2e)', () => {
   let app, accountId;
@@ -57,7 +57,7 @@ describe('App (e2e)', () => {
   });
 
   it('create 20 posts, each post has 1 to 5 comments', async () => {
-    for (let i = 1; i <= 20 * 100; i++) {
+    for (let i = 1; i <= 20; i++) {
       const createPostResponse = await request(app.getHttpServer())
         .post('/api/posts')
         .set('X-Account-Id', accountId)
